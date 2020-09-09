@@ -6,7 +6,7 @@
     align-items: center;
     background: rgb(146, 146, 224);
 
-    input, button {
+    input, button, .wrongLog {
         min-width: 300px;
         padding: 10px;
         margin: 5px;
@@ -24,6 +24,16 @@
 
         &:hover {
             opacity: 0.8;
+        }
+    }
+
+    .wrongLog {
+        background: rgba(202, 5, 5, 0.753);
+        border: 0;
+        transition: all 0.5s ease-in;
+
+        &.hidden {
+            opacity: 0;
         }
     }
 }

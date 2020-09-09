@@ -1,0 +1,24 @@
+.post {
+    margin: 20px;
+    font-size: 18px;
+    color: rgba(6, 29, 94, 0.842);
+
+    &-title {
+      font-weight: bold;
+    }
+  }
+
+.post-comments {
+    margin: 20px;
+    background: #bed267;
+    border-radius: 5px;
+
+    div {
+        margin: 5px;
+    }
+
+    span {
+        text-decoration: underline;
+        font-family: cursive;
+    }
+}
