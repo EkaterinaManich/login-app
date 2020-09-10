@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { Route, Switch, NavLink } from 'react-router-dom';
 
 import './App.scss';
-import burgerLogo from "./assets/img/burger.svg";
 import Main from "./components/Main";
 import Login from "./components/Login";
 import Posts from "./components/Posts";
 import Post from "./components/Post";
 import Time from "./components/Time";
 import Location from "./components/Location";
-
+import burgerLogo from "./assets/img/burger.svg";
+import logout from "./assets/img/logout.svg";
 
 function App() {
   const [isLogged, setIsLogged] = useState(false);
@@ -25,12 +25,12 @@ function App() {
                 <li><NavLink to="/posts">Posts</NavLink></li>
                 <li><NavLink to="/time">Time</NavLink></li>
                 <li><NavLink to="/location">Location</NavLink></li>
-                <li><div onClick={() => {
+                <li><img src={logout} alt="logout" onClick={() => {
                   localStorage.removeItem('name');
                   localStorage.removeItem('password');
                   setIsLogged(false);
                 }}
-                >Logout</div></li>
+                /></li>
               </ul>
             </nav>
           </header>
