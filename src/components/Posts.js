@@ -6,20 +6,27 @@ import "./Posts.scss";
 
 function Posts(props) {
   const [posts, setPosts] = useState([]);
+  const [initialPosts, setInitialPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     setLoading(true);
     axios.get('https://jsonplaceholder.typicode.com/posts')
       .then((response) => {
         setPosts(response.data);
+        setInitialPosts(response.data);
         setLoading(false);
       }).catch((error) => {
         setError(true);
         setLoading(false);
       })
   }, []);
+
+  useEffect(() => {
+    setPosts(initialPosts.filter((item) => item.title.includes(search)));
+  }, [search])
 
   function deletePost(id) {
     setPosts(posts.filter((item) => item.id !== id));
@@ -34,6 +41,14 @@ function Posts(props) {
           marginTop: "5px"
         }}>Please wait...</div>
       </div> : <>
+          <div className="posts-search">
+            <input
+              type="text"
+              placeholder="Search by title"
+              value={search}
+              onChange={(event)=> setSearch(event.target.value)}
+            />
+          </div>
           {posts.map((item) => (
             <div className="post" key={item.id}>
               <div onClick={() => props.history.push(`/posts/${item.id}`)}>
