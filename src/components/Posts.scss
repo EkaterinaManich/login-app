@@ -14,6 +14,20 @@
     background: rgba(0, 0, 0, 0.4);
   }
 
+  &-search {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    input {
+      padding: 5px;
+      font-size: 20px;
+      border-radius: 5px;
+    }
+  }
+
   .post {
     max-width: 300px;
     margin: 20px;
